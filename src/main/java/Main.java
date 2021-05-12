@@ -54,7 +54,7 @@ public class Main {
         Deployment updated = Deployment.newBuilder()
                                        .setSpec(DeploymentSpec
                                                .newBuilder(currentSpec)
-                                               .setReplicas(submissions / maxPodQueueLength))
+                                               .setReplicas(submissions / maxPodQueueLength + 1))
                                        .build();
         protoClient.update(updated, deploymentPath, "v1", "Deployment");
     }
